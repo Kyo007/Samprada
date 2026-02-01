@@ -1,6 +1,16 @@
 const noBtn = document.getElementById('noBtn');
 const yesBtn = document.getElementById('yesBtn');
 const card = document.querySelector('.card');
+const bgMusic = document.getElementById('bgMusic');
+
+// Try to play music as soon as page loads
+bgMusic.play().catch(err => {
+    console.log('Autoplay blocked, waiting for user interaction');
+    // If autoplay is blocked, play on first interaction
+    document.addEventListener('click', () => {
+        bgMusic.play().catch(e => console.log('Music play failed:', e));
+    }, { once: true });
+});
 
 // Teasing messages for the No button
 const noMessages = ["No", "Are you sure?", "Really?", "Think again!", "Please? 🥺", "Don't do this!", "Nope! 😜", "Can't catch me!", "Try again!", "Hehe 😏"];

@@ -109,7 +109,6 @@ img:hover {
 .shake {
   animation: shake 0.3s ease-in-out;
 }
-
 @keyframes zoomPulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.08); }

@@ -2,14 +2,12 @@ const noBtn = document.getElementById('noBtn');
 const yesBtn = document.getElementById('yesBtn');
 const card = document.querySelector('.card');
 const bgMusic = document.getElementById('bgMusic');
+const audioOverlay = document.getElementById('audioOverlay');
 
-// Try to play music as soon as page loads
-bgMusic.play().catch(err => {
-    console.log('Autoplay blocked, waiting for user interaction');
-    // If autoplay is blocked, play on first interaction
-    document.addEventListener('click', () => {
-        bgMusic.play().catch(e => console.log('Music play failed:', e));
-    }, { once: true });
+// Play music when user clicks overlay
+audioOverlay.addEventListener('click', () => {
+    bgMusic.play();
+    audioOverlay.style.display = 'none';
 });
 
 // Teasing messages for the No button
